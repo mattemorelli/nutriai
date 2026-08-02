@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "./auth.jsx";
 import { SLOT_EN, SAT_BUDGET, FIBRE_TARGET, SALT_BUDGET, transformDay } from "./nutrition.js";
 
-const API = `http://${window.location.hostname}:3000`;
+const API = import.meta.env.VITE_API_URL || `http://${window.location.hostname}:3000`;
 
 function barraColore(v) {
   if (v >= 8) return "bg-emerald-700";
@@ -313,7 +313,7 @@ export default function App() {
                 The plan didn't load.
               </p>
               <p className="mt-3 max-w-md text-[15px] leading-relaxed text-amber-900/70">
-                The backend isn't answering. Start it with <code className="rounded bg-amber-100 px-1.5 py-0.5 text-[13px]">node server.js</code> and reload.
+                The server isn't answering. It may be waking up — try again in a minute.
               </p>
             </div>
           )}
